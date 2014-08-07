@@ -127,7 +127,7 @@ class ClockCanvas extends PolymerElement {
   }
 
   void _drawHands() {
-    for (int i = clock.periods.length - 1; i > 0; i--) {
+    for (int i = clock.periods.length - 1; i >= 0; i--) {
       Period period = clock.periods[i];
       num value = clock.ticking ? period.intValue : period.value;
       num handAngle = value / period.max * 2 * PI - PI / 2;

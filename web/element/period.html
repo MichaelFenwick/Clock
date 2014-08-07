@@ -8,9 +8,7 @@
             </div>
         </template>
         <template if="{{!editing}}" indentation="remove">
-            <div class="clock_part">
-                <template if="{{index > 0}}"><span class="separator">{{separator}}</span></template>{{model.intValue | asInt | leftPad}}
-            </div>
+            <div class="clock_part"><template if="{{index > 0}}"><span class="separator">{{separator}}</span></template>{{model.intValue | asInt | leftPad}}</div>
         </template>
         <style>
             :host input {

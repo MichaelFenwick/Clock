@@ -13,7 +13,9 @@ class Clock extends PolymerElement {
   @published bool editing = false;
   @published bool running = true;
   @published bool showDefaultSchemes = false;
+
   @published Map<String, List> get defaultSchemes => toObservable(Model.Clock.defaultSchemes);
+
   @published String saveButtonLabel = "Save";
   @published Function saveButtonAction;
   @published StreamController tickStreamController;

@@ -8,14 +8,14 @@
         </template>
         <template if="{{showDefaultSchemes}}">
             <template repeat="{{key in defaultSchemes.keys}}">
-            <button on-click="{{setScheme}}" data-scheme="{{key}}">{{key}}</button>
+                <button on-click="{{setScheme}}" data-scheme="{{key}}">{{key}}</button>
             </template>
         </template>
         <div>
             <template repeat="{{period in model.periods | enumerate}}">
                 <clock-period model="{{period.value}}" editing="{{editing}}"
-                              index="{{period.index}}"
-                              on-removeperiod="{{removePeriod}}"></clock-period>
+                        index="{{period.index}}"
+                        on-removeperiod="{{removePeriod}}"></clock-period>
             </template>
             <template if="{{editing}}">
                 <img src="../image/plus_button.png" class="add_period_button" on-click="{{addPeriod}}">
@@ -33,7 +33,7 @@
         </template>
         <template if="{{!editing}}">
             <clock-canvas clock="{{model}}" tickStream="{{tickStream.stream}}" width="400"
-                          height="400"></clock-canvas>
+                    height="400"></clock-canvas>
         </template>
         <style>
             :host {
@@ -44,6 +44,7 @@
                 position: relative;
                 margin: 10px;
             }
+
             :host .close_button {
                 position: absolute;
                 top: -12px;
@@ -52,6 +53,7 @@
                 width: 24px;
                 cursor: pointer;
             }
+
             :host .add_period_button {
                 width: 30px;
                 height: 30px;
@@ -61,6 +63,7 @@
                 left: 5px;
                 cursor: pointer;
             }
+
             :host .save_button {
                 float: right;
                 margin-top: 13px;
