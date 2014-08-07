@@ -1,0 +1,6 @@
+name: Clock
+version: 0.0.1
+description: A customizable clock to count time in any units you want.
+dependencies:
+  browser: any
+  polymer: ">=0.11.0 <0.12.0"

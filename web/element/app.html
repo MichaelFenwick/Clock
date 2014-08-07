@@ -1,0 +1,22 @@
+<link rel="import" href="../../packages/polymer/polymer.html">
+<link rel="import" href="clock.html">
+
+<polymer-element name="clock-app">
+    <template>
+        <fieldset>
+            <legend>Clock Creation</legend>
+            <clock-clock model="{{creationClock}}" editing="true" saveButtonLabel="Create Clock"
+                         saveButtonAction="{{createClock}}" showDefaultSchemes="true" style="width: 98%;"></clock-clock>
+        </fieldset>
+        <fieldset>
+            <div id="clocks">
+                <template repeat="{{clock in clocks}}">
+                    <clock-clock model="{{clock}}" on-removeclock="{{removeClock}}"></clock-clock>
+                </template>
+            </div>
+        </fieldset>
+        <style>
+        </style>
+    </template>
+    <script type="application/dart" src="app.dart"></script>
+</polymer-element>

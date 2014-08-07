@@ -1,0 +1,8 @@
+.clock_part {display:inline-block; margin:0; padding:0; font-size:60px; font-family:monospace;}
+.clock_part+.clock_part:before{content:":"; padding:5px;}
+.clock_control {width:50px;}
+.date {}
+.edit_clock_button, .restart_clock_button {position:absolute; top:5px; left:5px;}
+.add_period_button {position:absolute; top:5px; right:5px;}
+
+.data {display:none !important;}

@@ -1,0 +1,72 @@
+<link rel="import" href="clock-canvas.html">
+<link rel="import" href="period.html">
+
+<polymer-element name="clock-clock">
+    <template>
+        <template if="{{!editing}}">
+            <img src="../image/close_button.png" class="close_button" on-click="{{removeClock}}"/>
+        </template>
+        <template if="{{showDefaultSchemes}}">
+            <template repeat="{{key in defaultSchemes.keys}}">
+            <button on-click="{{setScheme}}" data-scheme="{{key}}">{{key}}</button>
+            </template>
+        </template>
+        <div>
+            <template repeat="{{period in model.periods | enumerate}}">
+                <clock-period model="{{period.value}}" editing="{{editing}}"
+                              index="{{period.index}}"
+                              on-removeperiod="{{removePeriod}}"></clock-period>
+            </template>
+            <template if="{{editing}}">
+                <img src="../image/plus_button.png" class="add_period_button" on-click="{{addPeriod}}">
+                <button type="button" saveButtonAction="{{save}}"
+                        on-click="{{saveButtonAction}}" class="save_button">{{saveButtonLabel}}
+                </button>
+            </template>
+            <template if="{{!editing}}">
+                <button type="button" on-click="{{edit}}" style="float:right;">Edit</button>
+            </template>
+        </div>
+        <template if="{{editing}}">
+            <input type="radio" name="ticking" checked="{{model.ticking}}">Ticking
+            <input type="radio" name="ticking" checked="{{!model.ticking}}">Sweeping
+        </template>
+        <template if="{{!editing}}">
+            <clock-canvas clock="{{model}}" tickStream="{{tickStream.stream}}" width="400"
+                          height="400"></clock-canvas>
+        </template>
+        <style>
+            :host {
+                width: 500px;
+                display: inline-block;
+                border: 1px solid #000;
+                text-align: center;
+                position: relative;
+                margin: 10px;
+            }
+            :host .close_button {
+                position: absolute;
+                top: -12px;
+                right: -12px;
+                height: 24px;
+                width: 24px;
+                cursor: pointer;
+            }
+            :host .add_period_button {
+                width: 30px;
+                height: 30px;
+                display: inline-block;
+                position: relative;
+                top: 8px;
+                left: 5px;
+                cursor: pointer;
+            }
+            :host .save_button {
+                float: right;
+                margin-top: 13px;
+                margin-right: 8px;
+            }
+        </style>
+    </template>
+    <script type="application/dart" src="clock.dart"></script>
+</polymer-element>

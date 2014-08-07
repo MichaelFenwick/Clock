@@ -1,0 +1,52 @@
+<polymer-element name="clock-period">
+    <template>
+        <template if="{{editing}}">
+            <div class="period-form-holder">
+                <input type="number" value="{{model.max | asInt}}"/>
+                <img src="../image/close_button.png" class="close_button"
+                        on-click="{{removePeriod}}"/>
+            </div>
+        </template>
+        <template if="{{!editing}}" indentation="remove">
+            <div class="clock_part">
+                <template if="{{index > 0}}"><span class="separator">{{separator}}</span></template>{{model.intValue | asInt | leftPad}}
+            </div>
+        </template>
+        <style>
+            :host input {
+                width: 75px;
+                height: 25px;
+                font-size: 16px;
+                text-align: center
+            }
+
+            :host .period-form-holder {
+                display: inline-block;
+                position: relative;
+                margin: 10px;
+            }
+
+            :host .close_button {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                height: 16px;
+                width: 16px;
+                cursor: pointer;
+            }
+
+            :host .clock_part {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                font-size: 60px;
+                font-family: monospace;
+            }
+
+            :host .separator {
+                padding: 5px;
+            }
+        </style>
+    </template>
+    <script type="application/dart" src="period.dart"></script>
+</polymer-element>
